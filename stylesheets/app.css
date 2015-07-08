@@ -9615,7 +9615,17 @@ footer {
   border: 1px solid #CCCCCC;
 }
 
-/* line 193, ../scss/app.scss */
+/* line 192, ../scss/app.scss */
+#key1_flexselect {
+  border-color: #4fbdbe;
+}
+
+/* line 196, ../scss/app.scss */
+#key2_flexselect {
+  border-color: #a52723;
+}
+
+/* line 201, ../scss/app.scss */
 .margin-top {
   margin-top: 1.25rem;
 }

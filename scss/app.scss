@@ -189,6 +189,14 @@ footer {
 	}
 }
 
+#key1_flexselect {
+	border-color:$primary-color;
+}
+
+#key2_flexselect {
+	border-color:$red-dark;
+}
+
 //helper classes
 .margin-top {
 	margin-top:rem-calc(20);
