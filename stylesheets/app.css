@@ -9619,14 +9619,3 @@ footer {
 .margin-top {
   margin-top: 1.25rem;
 }
-
-/* line 197, ../scss/app.scss */
-[data-magellan-expedition], [data-magellan-expedition-clone] {
-  min-width: initial;
-}
-
-/* line 200, ../scss/app.scss */
-div[data-magellan-expedition="fixed"].fixed {
-  left: auto;
-  max-width: 320px;
-}
