@@ -112,8 +112,19 @@ function DatapoolMap(){
 
 
         parameters.push('search='+this.keywords[heatmapId]);
-        parameters.push('start='+this.from+'T'+this.fromtime);
-        parameters.push('end='+this.to+'T'+this.totime);
+
+        var start = 'start='+this.from
+        if (this.fromtime != ''){
+            start += 'T'+this.fromtime;
+        }
+        parameters.push(start);
+        var end = 'end='+this.to
+        if (this.totime != ''){
+            end += 'T'+this.totime;
+        }
+
+        parameters.push(end);
+
         parameters = parameters.join('&');
         parameters = encodeURIComponent(parameters);
         url += parameters;
