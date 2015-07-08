@@ -26,10 +26,5 @@ $(function() {
 
 $(document).ready(function(){
     $("select.flexselect").flexselect();
-    $("input.flexselect").on('click',function(){
-      var value = $(this).val();
-      if (value.match(/^Select keyword/)) {
-        $(this).val("");
-      }
-    });
+    $("input.flexselect").attr("placeholder", "Select keyword");
 });
