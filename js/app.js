@@ -2,10 +2,10 @@
 // Documentation can be found at: http://foundation.zurb.com/docs
 $(document).foundation();
 
-$(window).on('scroll.fndtn.magellan', function() {
-	var originalWidth = $('div[data-magellan-expedition-clone]').width();
-	$('div[data-magellan-expedition="fixed"]').width(originalWidth);
-});
+// $(window).on('scroll.fndtn.magellan', function() {
+// 	var originalWidth = $('div[data-magellan-expedition-clone]').width();
+// 	$('div[data-magellan-expedition="fixed"]').width(originalWidth);
+// });
 
 $(function() {
   $( "#from" ).datepicker({
