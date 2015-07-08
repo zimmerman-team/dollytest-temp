@@ -9,15 +9,21 @@ $(window).on('scroll.fndtn.magellan', function() {
 
 $(function() {
   $( "#from" ).datepicker({
+    defaultDate: new Date(2012, 6, 1),
     changeMonth: true,
     numberOfMonths: 1,
+    minDate: new Date(2012, 6, 1),
+    maxDate: new Date(2012, 6, 31),
     onClose: function( selectedDate ) {
       $( "#to" ).datepicker( "option", "minDate", selectedDate );
     }
   });
   $( "#to" ).datepicker({
+    defaultDate: new Date(2012, 6, 1),
     changeMonth: true,
     numberOfMonths: 1,
+    minDate: new Date(2012, 6, 1),
+    maxDate: new Date(2012, 6, 31),
     onClose: function( selectedDate ) {
       $( "#from" ).datepicker( "option", "maxDate", selectedDate );
     }
