@@ -52,7 +52,7 @@
 			a {
 				box-shadow: inset 0 -3px 0 0 $primary-color;
 			}
-			&:hover a, &.active a, a:focus {
+			&:hover a, &.active a {
 				box-shadow: inset 0 -3px 0 0 $red;
 			}
 		}
