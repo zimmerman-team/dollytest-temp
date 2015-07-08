@@ -49,15 +49,15 @@ function OipaMap(){
         this.heat = [];
 
         this.heat[0] = L.heatLayer([], {
-            radius: 25,
-            blur: 15,
-            gradient: {0.5: '#00FFFF', 0.7: '#3399FF', .9: '#3366FF'}
+            radius: 18,
+            blur: 25,
+            gradient: {0.5: 'rgba(0,255,255,0.1)', 0.7: 'rgba(0,153,255,0.1)', 1: 'rgba(51,102,255,0.1)'}
         }).addTo(this.map);
 
         this.heat[1] = L.heatLayer([], {
-            radius: 25,
-            blur: 15,
-            gradient: {0.5: '#FFCC00', 0.7: '#FF9933', .9: '#CC0000'}
+            radius: 18,
+            blur: 25,
+            gradient: {0.5: 'rgba(204,204,0,0.1)', 0.7: 'rgba(255,102,0,0.1)', 1: 'rgba(204,0,0,0.1)'}
         }).addTo(this.map);
     };
 
