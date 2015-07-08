@@ -51,13 +51,13 @@ function OipaMap(){
         this.heat[0] = L.heatLayer([], {
             radius: 25,
             blur: 15,
-            gradient: {0.4: 'yellow', 0.65: 'lime', 1: 'red'}
+            gradient: {0.5: '#00FFFF', 0.7: '#3399FF', .9: '#3366FF'}
         }).addTo(this.map);
 
         this.heat[1] = L.heatLayer([], {
             radius: 25,
             blur: 15,
-            gradient: {0.4: '#55acee', 0.65: '#4fbdbe', 1: '#147bc9'}
+            gradient: {0.5: '#FFCC00', 0.7: '#FF9933', .9: '#CC0000'}
         }).addTo(this.map);
     };
 
