@@ -20,9 +20,9 @@ function OipaMap(){
         var mapoptions = {
             attributionControl: false,
             scrollWheelZoom: false,
-            zoom: 3,
-            minZoom: 2,
-            maxZoom:12,
+            zoom: 11,
+            minZoom: 9,
+            maxZoom:15,
             continuousWorld: 'false',
             zoomControl: 'true'
         }
@@ -43,18 +43,20 @@ function OipaMap(){
         }
 
         this.tl = L.tileLayer('https://{s}.tiles.mapbox.com/v3/'+this.basemap+'/{z}/{x}/{y}.png', {
-            maxZoom: 12
+            maxZoom: 15
         }).addTo(this.map);
 
         this.heat = [];
 
         this.heat[0] = L.heatLayer([], {
+            minOpacity: .5,
             radius: 18,
             blur: 25,
             gradient: {0.5: 'rgba(0,255,255,0.1)', 0.7: 'rgba(0,153,255,0.1)', 1: 'rgba(51,102,255,0.1)'}
         }).addTo(this.map);
 
         this.heat[1] = L.heatLayer([], {
+            minOpacity: .5,
             radius: 18,
             blur: 25,
             gradient: {0.5: 'rgba(204,204,0,0.1)', 0.7: 'rgba(255,102,0,0.1)', 1: 'rgba(204,0,0,0.1)'}
