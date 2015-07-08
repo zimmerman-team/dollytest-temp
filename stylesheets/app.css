@@ -9562,18 +9562,19 @@ footer {
   padding: .5rem 1rem;
   border: 1px solid #CCCCCC;
   display: none;
+  z-index: 99999;
 }
-/* line 145, ../scss/app.scss */
+/* line 146, ../scss/app.scss */
 #ui-datepicker-div .ui-datepicker-next {
   float: right;
 }
-/* line 148, ../scss/app.scss */
+/* line 149, ../scss/app.scss */
 #ui-datepicker-div .ui-datepicker-month {
   width: 83%;
   display: block;
   float: left;
 }
-/* line 153, ../scss/app.scss */
+/* line 154, ../scss/app.scss */
 #ui-datepicker-div .ui-datepicker-year {
   display: block;
   float: right;
@@ -9582,49 +9583,49 @@ footer {
   line-height: 2.3125rem;
   text-align: right;
 }
-/* line 161, ../scss/app.scss */
+/* line 162, ../scss/app.scss */
 #ui-datepicker-div td {
   text-align: center;
   padding: 0;
 }
-/* line 164, ../scss/app.scss */
+/* line 165, ../scss/app.scss */
 #ui-datepicker-div td span {
   display: block;
   padding: 0.5625rem 0.625rem;
 }
-/* line 168, ../scss/app.scss */
+/* line 169, ../scss/app.scss */
 #ui-datepicker-div td a {
   display: block;
   padding: 0.5625rem 0.625rem;
 }
-/* line 171, ../scss/app.scss */
+/* line 172, ../scss/app.scss */
 #ui-datepicker-div td a:hover {
   background: #e4f5f5;
 }
-/* line 177, ../scss/app.scss */
+/* line 178, ../scss/app.scss */
 #ui-datepicker-div .ui-datepicker-current-day a {
   background: #bfe7e7;
 }
-/* line 181, ../scss/app.scss */
+/* line 182, ../scss/app.scss */
 #ui-datepicker-div .ui-datepicker-unselectable {
   color: #CCCCCC;
 }
-/* line 185, ../scss/app.scss */
+/* line 186, ../scss/app.scss */
 #ui-datepicker-div .ui-datepicker-today a {
   border: 1px solid #CCCCCC;
 }
 
-/* line 192, ../scss/app.scss */
+/* line 193, ../scss/app.scss */
 .margin-top {
   margin-top: 1.25rem;
 }
 
-/* line 196, ../scss/app.scss */
+/* line 197, ../scss/app.scss */
 [data-magellan-expedition], [data-magellan-expedition-clone] {
   min-width: initial;
 }
 
-/* line 199, ../scss/app.scss */
+/* line 200, ../scss/app.scss */
 div[data-magellan-expedition="fixed"].fixed {
   left: auto;
   max-width: 320px;

@@ -33,4 +33,8 @@ $(function() {
 $(document).ready(function(){
     $("select.flexselect").flexselect();
     $("input.flexselect").attr("placeholder", "Select keyword");
+    $('input.timepicker').timepicker({
+      timeFormat: 'HH:mm',
+      scrollbar: true
+    });
 });

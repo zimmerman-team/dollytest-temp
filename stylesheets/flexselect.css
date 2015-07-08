@@ -8,11 +8,8 @@
   max-height: 200px;
   overflow-x: hidden;
   overflow-y: auto;
-	background-color: Window;
-  color: WindowText;
   text-align: left;
-  box-shadow: 0 6px 12px #ccc;
-  -webkit-box-shadow: 0 6px 12px #ccc;
+  background: #fff;
 }
 
 .flexselect_dropdown ul {
@@ -29,8 +26,8 @@
 	cursor: pointer;
 	display: block;
 	width: 100%;
-	font: Menu;
 	overflow: hidden;
+	font-size: .8rem;
 }
 
 .flexselect_dropdown li.disabled {

@@ -6,6 +6,7 @@
     <title>Data Pool</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="stylesheets/flexselect.css">
+    <link rel="stylesheet" href="stylesheets/jquery.timepicker.css">
     <link rel="stylesheet" href="stylesheets/app.css" />
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
 
@@ -279,12 +280,30 @@
               </div>
               <div class="row">
                 <div class="large-12 columns">
-                  <label>Set date range</label>
-                  <div class="check-clear">
-                    <input type="text" id="from" name="from" placeholder="From">
+                  <label>Set date and time range</label>
+                  <div class="row">
+                    <div class="large-6 columns">
+                      <div class="check-clear">
+                        <input type="text" id="from" name="from" placeholder="From date">
+                      </div>
+                    </div>
+                    <div class="large-6 columns">
+                      <div class="check-clear">
+                        <input class="timepicker" type="text" id="fromtime" name="fromtime" placeholder="From time">
+                      </div>
+                    </div>
                   </div>
-                  <div class="check-clear">
-                    <input type="text" id="to" name="to" placeholder="To">
+                  <div class="row">
+                    <div class="large-6 columns">
+                      <div class="check-clear">
+                        <input type="text" id="to" name="to" placeholder="To date">
+                      </div>
+                    </div>
+                    <div class="large-6 columns">
+                      <div class="check-clear">
+                        <input class="timepicker" type="text" id="totime" name="totime" placeholder="To time">
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -376,6 +395,7 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="js/liquidmetal.js" type="text/javascript"></script>
     <script src="js/jquery.flexselect.js" type="text/javascript"></script>
+    <script src="js/jquery.timepicker.min.js" type="text/javascript"></script>
     <script src="bower_components/foundation/js/foundation.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
 
