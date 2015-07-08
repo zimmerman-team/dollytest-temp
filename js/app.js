@@ -9,6 +9,7 @@ $(document).foundation();
 
 $(function() {
   $( "#from" ).datepicker({
+    dateFormat: 'yy-mm-dd',
     defaultDate: new Date(2012, 6, 1),
     changeMonth: true,
     numberOfMonths: 1,
@@ -19,6 +20,7 @@ $(function() {
     }
   });
   $( "#to" ).datepicker({
+    dateFormat: 'yy-mm-dd',
     defaultDate: new Date(2012, 6, 1),
     changeMonth: true,
     numberOfMonths: 1,
