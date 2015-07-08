@@ -1,0 +1,198 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Pool</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylesheets/app.css" />
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+
+    <script src="bower_components/modernizr/modernizr.js"></script>
+
+    <style>
+    #heatmap{
+        height: 200px;
+    }
+    </style>
+
+  </head>
+  <body>
+
+    <div class="bg-wrapper">
+
+      <div class="topbar">
+        <div class="row">
+          <div class="large-12 columns">
+            <nav class="top-bar" data-topbar role="navigation">
+              <ul class="title-area">
+                <li class="name">
+                  <h1><a href="#"><img src="img/logo.svg"></a></h1>
+                </li>
+                 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+              </ul>
+
+              <section class="top-bar-section">
+                <ul class="right">
+                  <li class="active"><a href="#">Data Pool</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Partners</a></li>
+                  <li><a href="#">Support</a></li>
+                </ul>
+              </section>
+            </nav>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row margin-top">
+        <div class="large-3 columns">
+          <div class="panel dashboard filters" data-magellan-expedition="fixed">
+            <h6><i class="fa fa-filter"></i>Set your filters</h6>
+            <form>
+              <div class="row">
+                <div class="large-12 columns">
+                  <label>Select dataset</label>
+                  <div class="check-clear">
+                    <select>
+                      <option value="">Dolly Dataset</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-12 columns">
+                  <label>Select keywords to compare</label>
+                  <div class="check-clear">
+                    <select>
+                      <option value="">Select keyword #1</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                  <div class="check-clear">
+                    <select>
+                      <option value="">Select keyword #2</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-12 columns">
+                  <label>Set date range</label>
+                  <div class="check-clear">
+                    <input type="text" id="from" name="from" placeholder="From">
+                  </div>
+                  <div class="check-clear">
+                    <input type="text" id="to" name="to" placeholder="To">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-12 columns margin-top">
+                  <a href="#" class="small button secondary">Go!</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div> 
+        <div class="large-9 columns">
+
+          <div class="row">
+            <div class="large-12 columns">
+              <div id="heatmap" class="panel dashboard">
+               
+              </div>
+            </div>
+          </div>
+
+          <div class="row" data-equalizer>
+            <div class="large-3 columns">
+              <div id="tweets" class="panel number text-center" data-equalizer-watch>
+                <i class="fa fa-twitter"></i>
+                <div class="content">
+                  25.121
+                </div>
+                <small>tweets</small>
+              </div>
+            </div>
+            <div class="large-3 columns">
+              <div id="retweets" class="panel number text-center" data-equalizer-watch>
+                <i class="fa fa-retweet"></i>
+                  <div class="content">
+                    3.100
+                </div>
+                <small>retweets</small>
+              </div>
+            </div>
+            <div class="large-3 columns">
+              <div id="mentions" class="panel number text-center" data-equalizer-watch>
+                <i class="fa fa-comment"></i>
+                <div class="content">
+                  4.985
+                </div>
+                <small>mentions</small>
+              </div>
+            </div>
+            <div class="large-3 columns">
+              <div id="users" class="panel number text-center" data-equalizer-watch>
+                <i class="fa fa-users"></i>
+                <div class="content">
+                  21.099
+                </div>
+                <small>users</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="large-12 columns">
+              <div id="linechart" class="panel dashboard">
+                <h6><i class="fa fa-line-chart"></i>Comparison chart</h6>
+                <div class="content">
+                  <img src="img/difference-chart.svg">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <footer>
+        <div class="row">
+          <div class="large-12 columns text-center">
+            
+            <div class="row">
+              <div class="large-3 columns large-centered">
+                <img src="img/zz-logo.svg">
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/foundation/js/foundation.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/app.js"></script>
+
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+    <script src="js/leaflet-heat.js"></script>
+    
+    <script src="js/dolly_data.js"></script>
+    <script src="js/main.js"></script>
+
+
+
+  </body>
+</html>

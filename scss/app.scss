@@ -1,0 +1,202 @@
+@import "settings";
+@import "foundation";
+
+// Or selectively include components
+// @import
+//   "foundation/components/accordion",
+//   "foundation/components/alert-boxes",
+//   "foundation/components/block-grid",
+//   "foundation/components/breadcrumbs",
+//   "foundation/components/button-groups",
+//   "foundation/components/buttons",
+//   "foundation/components/clearing",
+//   "foundation/components/dropdown",
+//   "foundation/components/dropdown-buttons",
+//   "foundation/components/flex-video",
+//   "foundation/components/forms",
+//   "foundation/components/grid",
+//   "foundation/components/inline-lists",
+//   "foundation/components/joyride",
+//   "foundation/components/keystrokes",
+//   "foundation/components/labels",
+//   "foundation/components/magellan",
+//   "foundation/components/orbit",
+//   "foundation/components/pagination",
+//   "foundation/components/panels",
+//   "foundation/components/pricing-tables",
+//   "foundation/components/progress-bars",
+//   "foundation/components/reveal",
+//   "foundation/components/side-nav",
+//   "foundation/components/split-buttons",
+//   "foundation/components/sub-nav",
+//   "foundation/components/switches",
+//   "foundation/components/tables",
+//   "foundation/components/tabs",
+//   "foundation/components/thumbs",
+//   "foundation/components/tooltips",
+//   "foundation/components/top-bar",
+//   "foundation/components/type",
+//   "foundation/components/offcanvas",
+//   "foundation/components/visibility";
+
+.bg-wrapper {
+	background:$smoke;
+}
+
+.topbar {
+	background:$blu-dark;
+	box-shadow: inset 0 -3px 0 0 $primary-color;
+	nav {
+		box-shadow: inset 0 -3px 0 0 $primary-color;
+		.top-bar-section ul li {
+			a {
+				box-shadow: inset 0 -3px 0 0 $primary-color;
+			}
+			&:hover a, &.active a, a:focus {
+				box-shadow: inset 0 -3px 0 0 $red;
+			}
+		}
+		.name {
+			width: 14rem;
+			img {
+				width: 100%;
+				height: auto;
+			}
+			h1 {
+				a {
+					padding-left:0;
+				}
+			}
+		}
+	}
+}
+
+.header {
+	text-align:center;
+	margin:rem-calc(20) 0;
+	padding-bottom:rem-calc(10);
+	border-bottom:1px solid $jet;
+}
+
+.panel {
+	//box-shadow:1px 1px 1px 0px rgba(0,0,0,0.4);
+	//border-radius:4px;
+	overflow:hidden;
+	&.dashboard {
+		h6 {
+			margin-top:rem-calc(-20);
+			margin-left:rem-calc(-20);
+			margin-right:rem-calc(-20);
+			padding:rem-calc(20);
+			color:$blu-dark;
+		}
+	}
+	&.filters {
+		h6 {
+			background:$oil;
+			color:$white;
+		}
+	}
+	&.number {
+		color:#fff;
+		.fa {
+			color:#fff;
+			font-size:3rem;
+			margin-bottom: 1rem;
+		}
+		.content {
+			font-size:2rem;
+			line-height: 1;
+		}
+		small {
+			font-size:.8rem;
+		}
+	}
+	&#tweets {
+		background:#55acee;
+	}
+	&#retweets {
+		background:darken(#55acee,20%);
+	}
+	&#mentions {
+		background:$primary-color;
+	}
+	&#users {
+		background:$red-dark;
+	}
+	.fa {
+		margin-right: 5px;
+		color:$red;
+	}
+}
+
+footer {
+	background:$blu-dark;
+	color:$white;
+	padding:rem-calc(20);
+}
+
+//form, datepicker 
+#ui-datepicker-div {
+	background:$white;
+	padding:.5rem 1rem;
+	border:1px solid $iron;
+	display:none;
+	.ui-datepicker-next {
+		float:right;
+	}
+	.ui-datepicker-month {
+		width:83%;
+		display: block;
+		float:left;
+	}
+	.ui-datepicker-year {
+		display: block;
+		float: right;
+		width:15%;
+		height: 2.3125rem;
+  		line-height: 2.3125rem;
+  		text-align: right;
+	}
+	td {
+		text-align: center;
+		padding:0;
+		span {
+			display: block;
+			padding:0.5625rem 0.625rem;
+		}
+		a {
+			display: block;
+			padding:0.5625rem 0.625rem;
+			&:hover {
+				background:$blu-light;
+			}
+		}
+	}
+	.ui-datepicker-current-day {
+		a {
+			background:darken($blu-light, 10%);
+		}
+	}
+	.ui-datepicker-unselectable {
+		color:$iron;
+	}
+	.ui-datepicker-today {
+		a {
+			border:1px solid $iron;
+		}
+	}
+}
+
+//helper classes
+.margin-top {
+	margin-top:rem-calc(20);
+}
+
+[data-magellan-expedition], [data-magellan-expedition-clone] {
+	min-width: initial;
+}
+div[data-magellan-expedition="fixed"].fixed {
+	left: auto;
+	max-width:320px;
+}
