@@ -1,5 +1,11 @@
 
-function OipaMap(){
+
+function startComparison(){
+    dollymap.refresh();
+}
+
+
+function DatapoolMap(){
     this.map = null;
     this.selection = null;
     this.slider = null;
@@ -10,6 +16,19 @@ function OipaMap(){
     this.markers = [];
     this.vistype = "geojson";
     this.selected_year = null;
+
+
+    this.keywords = ['traffic','mombasa'];
+    this.startDate = '2012-01-01';
+    this.endDate = '2014-01-02';
+    this.excludeUsers = [];
+
+    this.countTweets = 0;
+    this.countRetweets = 0;
+    this.countMentions = 0;
+    this.countUsers = {};
+    this.loaded = 0;
+
 
     if (typeof standard_basemap !== 'undefined') {
         this.basemap = standard_basemap;
@@ -63,37 +82,91 @@ function OipaMap(){
         }).addTo(this.map);
     };
 
-    this.refresh = function(data){
-        if(data){
-            this.reDraw(data);
-        } else{
-            this.getData();
-        }
+    this.resetData = function(){
+        this.countTweets = 0;
+        this.countRetweets = 0;
+        this.countMentions = 0;
+        this.countUsers = {};
+        this.loaded = 0;
 
-    };
+        this.heat[0].setLatLngs([]);
+        this.heat[1].setLatLngs([]);
+    }
 
-
-    this.getData = function(url){
-        this.refresh(dollyData);
-    };
-
-    this.reDraw = function(data){
-
-        for (var i = 0;i< 500;i++){
-            this.heat[0].addLatLng([data[i]['fields']['latitude'], data[i]['fields']['longtitude']]);
-        }
-
-        for (var i = 500;i< data.length;i++){
-            this.heat[1].addLatLng([data[i]['fields']['latitude'], data[i]['fields']['longtitude']]);
-        }
+    this.refresh = function(data, heatmapId){
         
+
+
+        if(data){
+            this.reDraw(data, heatmapId);
+        } else{
+            this.resetData();
+            this.getData(data, 0);
+            this.getData(data, 1);
+        }
+    };
+
+    this.createUrl = function(heatmapId){
+
+        var url = 'get_data.php?parameters=';
+
+        var parameters = [];
+        parameters.push('search='+this.keywords[heatmapId]);
+        parameters.push('start='+this.startDate);
+        parameters.push('end='+this.endDate);
+        parameters = parameters.join('&');
+        parameters = encodeURIComponent(parameters);
+        url += parameters;
+        return url;
+    }
+
+
+    this.getData = function(url, heatmapId){
+        var url = this.createUrl(heatmapId);
+        var that = this;
+        jQuery.ajax({
+            type: 'GET',
+            url: url,
+            dataType: 'json',
+            success: function(data){
+                that.refresh(data, heatmapId);
+            }
+        });
+    };
+
+    this.reDraw = function(data, heatmapId){
+
+        for (var i = 0;i< data.length;i++){
+            this.heat[heatmapId].addLatLng([data[i]['fields']['latitude'], data[i]['fields']['longitude']]);
+
+            this.countTweets++;
+
+
+            if (data[i]['fields']['text'].substring(0, 2) == "RT") {
+                this.countRetweets++;
+            }
+
+            if (data[i]['fields']['text'].charAt(0) == "@") {
+                this.countMentions++;
+            }
+
+            this.countUsers[data[i]['fields']['u_id']] = true;
+        }
+
+        this.loaded++;
+        if(this.loaded == 2){
+
+
+            jQuery('#count-tweets').text(this.countTweets);
+            jQuery('#count-retweets').text(this.countRetweets);
+            jQuery('#count-mentions').text(this.countMentions);
+            jQuery('#count-users').text(Object.keys(this.countUsers).length);
+        }
     }
 
 }
 
 
-var dollymap = new OipaMap();
-
+var dollymap = new DatapoolMap();
 dollymap.set_map('heatmap');
 dollymap.refresh();
-console.log(dollyData);
