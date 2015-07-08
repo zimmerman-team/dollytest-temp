@@ -18,9 +18,11 @@ function DatapoolMap(){
     this.selected_year = null;
 
 
-    this.keywords = ['traffic','mombasa'];
-    this.startDate = '2012-01-01';
-    this.endDate = '2014-01-02';
+    this.keywords = ['',''];
+    this.to = '';
+    this.totime = '';
+    this.from = '';
+    this.fromtime = '';
     this.excludeUsers = [];
 
     this.countTweets = 0;
@@ -111,9 +113,11 @@ function DatapoolMap(){
         var url = 'get_data.php?parameters=';
 
         var parameters = [];
+
+
         parameters.push('search='+this.keywords[heatmapId]);
-        parameters.push('start='+this.startDate);
-        parameters.push('end='+this.endDate);
+        parameters.push('start='+this.from+'T'+this.fromtime);
+        parameters.push('end='+this.to+'T'+this.totime);
         parameters = parameters.join('&');
         parameters = encodeURIComponent(parameters);
         url += parameters;
@@ -169,4 +173,16 @@ function DatapoolMap(){
 
 var dollymap = new DatapoolMap();
 dollymap.set_map('heatmap');
-dollymap.refresh();
+
+
+
+
+jQuery("#go").click(function(){
+    dollymap.keywords[0] = jQuery("#keyword-0").val();
+    dollymap.keywords[1] = jQuery("#keyword-1").val();
+    dollymap.from = jQuery("#from").val();
+    dollymap.fromtime = jQuery("#fromtime").val();
+    dollymap.to = jQuery("#to").val();
+    dollymap.totime = jQuery("#totime").val();
+    dollymap.refresh();
+});
