@@ -13,7 +13,7 @@ $(function() {
     changeMonth: true,
     numberOfMonths: 1,
     minDate: new Date(2012, 6, 1),
-    maxDate: new Date(2012, 6, 31),
+    maxDate: new Date(2012, 11, 31),
     onClose: function( selectedDate ) {
       $( "#to" ).datepicker( "option", "minDate", selectedDate );
     }
@@ -23,7 +23,7 @@ $(function() {
     changeMonth: true,
     numberOfMonths: 1,
     minDate: new Date(2012, 6, 1),
-    maxDate: new Date(2012, 6, 31),
+    maxDate: new Date(2012, 11, 31),
     onClose: function( selectedDate ) {
       $( "#from" ).datepicker( "option", "maxDate", selectedDate );
     }
