@@ -1,25 +1,8 @@
-function startComparison(){
-    dollymap.refresh();
-}
-
 function DatapoolMap(){
     this.map = null;
-    this.selection = null;
-    this.slider = null;
     this.basemap = "zimmerman2014.hmpkg505";
     this.tl = null;
-    this.compare_left_right = null;
-    this.circles = {};
-    this.markers = [];
-    this.vistype = "geojson";
-    this.selected_year = null;
-
-    this.keywords = ['',''];
-    this.to = '';
-    this.totime = '';
-    this.from = '';
-    this.fromtime = '';
-    this.excludeUsers = [];
+    this.filters = null;
 
     this.countTweets = 0;
     this.countRetweets = 0;
@@ -85,20 +68,18 @@ function DatapoolMap(){
         this.countRetweets = 0;
         this.countMentions = 0;
         this.countUsers = {};
-        this.loaded = 0;
 
         this.heat[0].setLatLngs([]);
         this.heat[1].setLatLngs([]);
     }
 
     this.refresh = function(data, heatmapId){
-        
-
-
         if(data){
             this.reDraw(data, heatmapId);
         } else{
+
             this.resetData();
+            this.loaded = 0;
             this.getData(data, 0);
             this.getData(data, 1);
         }
@@ -106,21 +87,20 @@ function DatapoolMap(){
 
     this.createUrl = function(heatmapId){
 
-        var url = 'get_data.php?parameters=';
+        var url = 'get_tweets.php?parameters=';
 
         var parameters = [];
 
+        parameters.push('search='+this.filters.keywords[heatmapId]);
 
-        parameters.push('search='+this.keywords[heatmapId]);
-
-        var start = 'start='+this.from
-        if (this.fromtime != ''){
-            start += 'T'+this.fromtime;
+        var start = 'start='+this.filters.from
+        if (this.filters.fromtime != ''){
+            start += 'T'+this.filters.fromtime;
         }
         parameters.push(start);
-        var end = 'end='+this.to
-        if (this.totime != ''){
-            end += 'T'+this.totime;
+        var end = 'end='+this.filters.to
+        if (this.filters.totime != ''){
+            end += 'T'+this.filters.totime;
         }
 
         parameters.push(end);
@@ -141,7 +121,6 @@ function DatapoolMap(){
             dataType: 'json',
             success: function(data){
                 that.refresh(data, heatmapId);
-                tweetData[heatmapId] = data;
             }
         });
     };
@@ -173,97 +152,8 @@ function DatapoolMap(){
             jQuery('#count-mentions').text(this.countMentions);
             jQuery('#count-users').text(Object.keys(this.countUsers).length);
 
-            linechart.refresh();
-
-            this.loaded = 0;
+            loading = false;
         }
     }
 
 }
-
-
-var dollymap = new DatapoolMap();
-dollymap.set_map('heatmap');
-
-
-
-
-jQuery("#go").click(function(){
-    dollymap.keywords[0] = jQuery("#keyword-0").val();
-    dollymap.keywords[1] = jQuery("#keyword-1").val();
-    dollymap.from = jQuery("#from").val();
-    dollymap.fromtime = jQuery("#fromtime").val();
-    dollymap.to = jQuery("#to").val();
-    dollymap.totime = jQuery("#totime").val();
-    dollymap.refresh();
-});
-
-
-
-
-
-
-
-
-var DatapoolLinechart = function(){
-
-
-    this.chart = null;
-
-    this.init = function(){
-        this.chart = nv.models.cumulativeLineChart()
-          .x(function(d) { return d[0] })
-          .y(function(d) { return d[1] })
-          .color(d3.scale.category10().range())
-          .useInteractiveGuideline(true)
-          ;
-
-        this.chart.xAxis
-            .tickFormat(function(d) {
-                return d3.time.format('%x')(new Date(d))
-              });
-            // .tickValues([1078030800000,1122782400000,1167541200000,1251691200000])
-
-        this.chart.yAxis
-            .tickFormat(d3.format(',.1'));
-
-        d3.select('#linechart svg')
-            .datum([{'key': 'First series', 'values': [[]], 'color': '#4fbdbe'},{'key': 'Second series', 'values': [[]], 'color': '#ee3b24'}])
-            .call(this.chart);
-
-        nv.utils.windowResize(this.chart.update);
-    }
-
-    this.reformatData = function(){
-
-        console.log(tweetData);
-
-        var data = [[],[]];
-        if (tweetData[0].length > 0){
-            for(var i = 0; i < tweetData[0].length;i++){
-                data[0][i] = [tweetData[0][i]['fields']['create_at'], 1];    
-            }
-        }
-
-        if(tweetData[1].length > 0){
-            for(var i = 0; i < tweetData[1].length;i++){
-                data[1][i] = [tweetData[1][i]['fields']['create_at'], 1];    
-            }
-        }
-        return data;
-    }
-
-    this.refresh = function(){
-        console.log('refresh called');
-        var data = this.reformatData();
-
-        d3.select('#linechart svg')
-            .datum([{'key': 'First series', 'values': data[0], 'color': '#4fbdbe'},{'key': 'Second series', 'values': data[1], 'color': '#ee3b24'}])
-            .call(this.chart);
-
-    }
-}
-
-var tweetData = [[],[]];
-var linechart = new DatapoolLinechart();
-linechart.init();

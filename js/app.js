@@ -10,10 +10,10 @@ $(document).foundation();
 $(function() {
   $( "#from" ).datepicker({
     dateFormat: 'yy-mm-dd',
-    defaultDate: new Date(2012, 6, 1),
+    defaultDate: new Date(2012, 6, 16),
     changeMonth: true,
     numberOfMonths: 1,
-    minDate: new Date(2012, 6, 1),
+    minDate: new Date(2012, 6, 16),
     maxDate: new Date(2012, 11, 31),
     onClose: function( selectedDate ) {
       $( "#to" ).datepicker( "option", "minDate", selectedDate );
@@ -21,10 +21,10 @@ $(function() {
   });
   $( "#to" ).datepicker({
     dateFormat: 'yy-mm-dd',
-    defaultDate: new Date(2012, 6, 1),
+    defaultDate: new Date(2012, 6, 16),
     changeMonth: true,
     numberOfMonths: 1,
-    minDate: new Date(2012, 6, 1),
+    minDate: new Date(2012, 6, 16),
     maxDate: new Date(2012, 11, 31),
     onClose: function( selectedDate ) {
       $( "#from" ).datepicker( "option", "maxDate", selectedDate );
