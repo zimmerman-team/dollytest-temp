@@ -16,7 +16,7 @@ var DatapoolLinechart = function(){
         this.chart = nv.models.lineChart();
         this.chart.x(function(d) { return d[0] })  
         this.chart.y(function(d) { return d[1] }) 
-        this.chart.margin({left: 60})
+        this.chart.margin({left: 60, right: 20})
         this.chart.useInteractiveGuideline(true)
         this.chart.showLegend(true)
         this.chart.showYAxis(true)
@@ -26,7 +26,7 @@ var DatapoolLinechart = function(){
         this.chart.xAxis    
           .axisLabel('')
           .tickFormat(function(d) {
-            return d3.time.format('%x')(new Date(d))
+            return d3.time.format('%Y-%m-%d')(new Date(d))
           });
 
         this.chart.yAxis 
