@@ -33,7 +33,9 @@ $(function() {
 });
 
 $(document).ready(function(){
-    $("select.flexselect").flexselect();
+    $("select.flexselect").flexselect({
+      allowMismatch: true
+    });
     $("input.flexselect").attr("placeholder", "Select keyword");
     $('input.timepicker').timepicker({
       timeFormat: 'HH:mm',
