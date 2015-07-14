@@ -130,7 +130,7 @@ $oil         : #333333;
 // We use these as default colors throughout
 $primary-color: #4fbdbe;
 $secondary-color: #333333;
-// $alert-color: #f04124;
+$alert-color: #ee3b24;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
@@ -139,12 +139,15 @@ $red: #ee3b24;
 $red-dark: #a52723;
 
 $blu-light: lighten($primary-color,40%);
+$blu-tlight: lighten($primary-color,8%);
+$blu-tmlight: lighten($primary-color,20%);
 $blu-mlight: lighten($primary-color,30%);
 $blu-dark: darken($primary-color,10%);
+$blu-xdark: darken($primary-color,15%);
 $blu-xlight: lighten($primary-color,63%);
 
 // We use these to control various global styles
-$body-bg: $blu-dark;
+$body-bg: $blu-tlight;
 // $body-font-color: $jet;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
@@ -1420,7 +1423,7 @@ $panel-border-color: $iron;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: $blu-dark;
+$topbar-bg-color: $blu-tlight;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1432,7 +1435,7 @@ $topbar-height: rem-calc(70);
 // $topbar-title-font-size: rem-calc(17);
 
 // Set the link colors and styles for top-level nav
-$topbar-link-color: $blu-mlight;
+$topbar-link-color: $blu-light;
 // $topbar-link-color-hover: $white;
 // $topbar-link-color-active: $white;
 // $topbar-link-color-active-hover: $white;
@@ -1454,7 +1457,7 @@ $topbar-link-font-family: $font-family-serif;
 
 // Style the top bar dropdown elements
 $topbar-dropdown-bg: $topbar-bg-color;
-$topbar-dropdown-link-color: $blu-mlight;
+$topbar-dropdown-link-color: $blu-light;
 // $topbar-dropdown-link-color-hover: $topbar-link-color-hover;
 $topbar-dropdown-link-bg: $topbar-bg-color;
 $topbar-dropdown-link-bg-hover: $topbar-bg-color;

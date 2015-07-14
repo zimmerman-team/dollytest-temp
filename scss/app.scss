@@ -40,17 +40,17 @@
 //   "foundation/components/visibility";
 
 .bg-wrapper {
-	background:$smoke;
+	background:$silver;
 }
 
 .topbar {
-	background:$blu-dark;
-	box-shadow: inset 0 -3px 0 0 $primary-color;
+	background:$blu-tlight;
+	box-shadow: inset 0 -3px 0 0 $blu-tmlight;
 	nav {
-		box-shadow: inset 0 -3px 0 0 $primary-color;
+		box-shadow: inset 0 -3px 0 0 $blu-tmlight;
 		.top-bar-section ul li {
 			a {
-				box-shadow: inset 0 -3px 0 0 $primary-color;
+				box-shadow: inset 0 -3px 0 0 $blu-tmlight;
 			}
 			&:hover a, &.active a {
 				box-shadow: inset 0 -3px 0 0 $red;
@@ -83,7 +83,7 @@
 	//border-radius:4px;
 	overflow:hidden;
 	&.dashboard {
-		h6 {
+		h5 {
 			margin-top:rem-calc(-20);
 			margin-left:rem-calc(-20);
 			margin-right:rem-calc(-20);
@@ -92,7 +92,7 @@
 		}
 	}
 	&.filters {
-		h6 {
+		h5 {
 			background:$oil;
 			color:$white;
 		}
@@ -111,6 +111,9 @@
 		small {
 			font-size:.8rem;
 		}
+	}
+	&.datastream {
+
 	}
 	&#tweets {
 		background:#55acee;
@@ -131,7 +134,7 @@
 }
 
 footer {
-	background:$blu-dark;
+	background:$blu-tlight;
 	color:$white;
 	padding:rem-calc(20);
 }
@@ -195,6 +198,81 @@ footer {
 
 #keyword-1_flexselect {
 	border-color:$red-dark;
+}
+
+//datastream stylez
+.datastream {
+	button {
+		margin-bottom: 0;
+		font-size:.8rem;
+		.fa {
+			color: #fff;
+		}
+	}
+	h1 {
+		font-size: 1.8rem;
+		margin:.6rem 0;
+	}
+	.hl {
+		&:hover {
+			background:$smoke;
+		}
+		input, select, label {
+			margin-top:.35rem;
+			margin-bottom: .35rem;
+		}
+	}
+	input {
+		&.header-input {
+			font-size:1.8rem;
+			height:auto;
+		}
+		&[type=checkbox] {
+			height:2.3125rem;
+			float: left;
+			+ label {
+				height:2.3125rem;
+				line-height: 2.3125rem;
+			}
+		}
+	}
+	table {
+		width:100%;
+		td {
+			width: 33.3333333%;
+		}
+		input,select,label {
+			margin-top:0;
+			margin-bottom: 0;
+		}
+	}
+	#save {
+		margin-top:1rem;
+	}
+}
+
+.alert-box {
+	background:$blu-tmlight;
+	padding:1.25rem;
+	h3 {
+		color:#fff;
+	}
+	&.nopadding {
+		padding:0;
+		margin:0;
+	}
+	.close {
+		position: relative;
+		opacity: 1;
+		right:auto;
+		margin-top:0;
+		top:auto;
+		@include button;
+		font-size: .8rem;
+		&:hover {
+			opacity: 1;
+		}
+	}
 }
 
 //helper classes
