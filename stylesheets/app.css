@@ -9737,7 +9737,40 @@ footer {
   opacity: 1;
 }
 
-/* line 279, ../scss/app.scss */
+/* line 278, ../scss/app.scss */
+.addstream .fa {
+  margin: 0;
+}
+
+/* line 282, ../scss/app.scss */
+.panel-content {
+  display: none;
+}
+
+/* line 286, ../scss/app.scss */
+.killbutton {
+  overflow: hidden;
+  display: inline-block;
+  float: right;
+  margin-left: .3rem;
+}
+/* line 291, ../scss/app.scss */
+.killbutton button {
+  white-space: nowrap;
+}
+
+/* line 297, ../scss/app.scss */
 .margin-top {
   margin-top: 1.25rem;
+}
+
+/* line 301, ../scss/app.scss */
+#linechart svg {
+  width: 100%;
+  height: 400px;
+}
+
+/* line 306, ../scss/app.scss */
+.alert.disabled {
+  display: none;
 }

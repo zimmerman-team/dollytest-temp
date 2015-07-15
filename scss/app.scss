@@ -275,9 +275,36 @@ footer {
 	}
 }
 
+.addstream .fa {
+	margin:0;
+}
+
+.panel-content {
+	display:none;
+}
+
+.killbutton {
+	overflow:hidden;
+	display:inline-block;
+	float:right;
+	margin-left:.3rem;
+	button {
+		white-space:nowrap;
+	}
+}
+
 //helper classes
 .margin-top {
 	margin-top:rem-calc(20);
+}
+
+#linechart svg {
+    width: 100%;
+    height: 400px;
+}
+
+.alert.disabled {
+	display:none;
 }
 
 // [data-magellan-expedition], [data-magellan-expedition-clone] {

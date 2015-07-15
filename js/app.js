@@ -41,4 +41,80 @@ $(document).ready(function(){
       timeFormat: 'HH:mm',
       scrollbar: true
     });
+
+    //basic panel shit
+    //doe in css $('.panel-content').hide();
+    $('.configure').on('click',function(){
+      $(this).parents('.panel-header').slideUp().siblings('.panel-content').slideDown();
+    });
+    $('.close').on('click',function(){
+      $(this).parents('.panel-content').slideUp().siblings('.panel-header').slideDown();
+    });
+    $('.killbutton').width($('.killbutton .kill').outerWidth());
+    $('.kill').on('click',function(){
+      if (confirm('Are you sure?')) {
+        $(this).parents('.panel').parent().parent().fadeOut(300,function(){
+          $(this).remove();
+        });
+      }
+      return false;
+    });
+
+    //add data scherm
+    $('#filter-subgroup').hide();
+    $('#filter-group').on('change', function(){
+      if ($(this).val()) {
+        $('#filter-subgroup').fadeIn(200);
+      }
+      else {
+        $('#filter-subgroup').fadeOut(200);
+      }
+    });
+
+    $('table.filters select, table.filters input[type=text]').hide();
+    $('table.filters input[type=checkbox]:checked').parent().next().children('select').show();
+    $('table.filters select:has(option[value="filter"]:selected)').parent().next().children('input').show();
+    $('table.filters input[type=checkbox]').on('change', function(){
+      if ($(this).is(':checked')) {
+        $(this).parent().next().children('select').fadeIn(200);
+        if ($(this).parent().next().children('select').val() == 'filter') {
+          $(this).parent().nextAll().children('input').fadeIn(200);
+        }
+      }
+      else {
+        $(this).parent().next().children('select').fadeOut(200);
+        $(this).parent().nextAll().children('input').fadeOut(200);
+      }
+    });
+    $('table.filters select').on('change', function(){
+      if ($(this).val() == 'filter') {
+        $(this).parent().next().children('input').fadeIn(200);
+      }
+      else {
+        $(this).parent().next().children('input').fadeOut(200);
+      }
+    });
+
+    //add project scherm
+    //linker kant
+    var i = 1;
+    $('#datastreams select').on('change', function() {
+      if ($(this).val() && !$(this).next().is('select')) {
+        $('select#datastreams0').clone(true, true).attr('id', 'datastreams'+i).appendTo('#datastreams');
+        i++;
+      }
+    });
+    //rechter kant
+    var j = 1;
+    $('.addstream').on('click',function(){
+      var streamdiv = $(this).parent().parent().prev();
+      $('.datastream0').clone(true, true).attr('class', 'row stream datastream'+j).appendTo(streamdiv);
+      $('.datastream'+j).find('.disabled').removeClass('disabled').addClass('delete').on('click',function(){
+        $(this).parents('.stream').fadeOut(200, function() {
+          $(this.remove());
+        });
+      });;
+      j++;
+    });
+
 });
