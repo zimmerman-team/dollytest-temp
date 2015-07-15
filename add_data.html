@@ -48,26 +48,23 @@
       <div class="row margin-top">
         <div class="large-3 columns">
           <div class="panel dashboard filters">
-            <h5><i class="fa fa-database"></i>Add a stream</h5>
+            <h5><i class="fa fa-database"></i>Add a data stream</h5>
             <form>
               <div class="row">
                 <div class="large-12 columns">
-                  <h6>Choose stream</h6>
-                  <div class="check-clear">
-                    <select id="cat">
-                      <option value="">Category</option>
-                    </select>
+                  <div class="margin-top">
+                    <input id="project-name" type="text" placeholder="Name your stream">
                   </div>
-                  <div class="check-clear">
-                    <select id="subcat">
-                      <option value="">Subcategory</option>
-                    </select>
-                  </div>
-                  <div class="check-clear">
-                    <select id="stream">
-                      <option value="">Dolly Dataset</option>
-                    </select>
-                  </div>
+                  <h6>Select a data set</h6>
+                  <select id="cat">
+                    <option value="">Category</option>
+                  </select>
+                  <select id="subcat">
+                    <option value="">Subcategory</option>
+                  </select>
+                  <select id="stream">
+                    <option value="">Dolly Dataset</option>
+                  </select>
                 </div>
               </div>
               <div class="row">
@@ -82,8 +79,8 @@
 
           <div data-alert class="alert-box">
             <h3>Adding data streams to your Data Pool</h3>
-            <p>A stream contains a configured data set that you would like to compare in Data Pool. Streams are needed to create projects. Select a stream on the left, and the filters you'd like to use. Then add it to your stream list.</p>
-            <p>Once it's added, you can configure it some more on the right. You don't need to completely define everything, it's also possible to configure on the fly in the Data Pool visualisation dashboard. </p>
+            <p>A stream contains a configured data set that you would like to compare in Data Pool. Streams are needed to create projects. Select a stream on the left, and give it a name. Then add it to your stream list.</p>
+            <p>Once it's added, you can configure it on the right. You don't need to completely define everything, it's also possible to configure on the fly in the Data Pool visualisation dashboard. </p>
             <p>Don't forget to save once you're done. Then head over to the Projects section.</p>
             <button class="close btn">Ok, I got it</button>
           </div>
