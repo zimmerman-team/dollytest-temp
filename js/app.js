@@ -107,8 +107,8 @@ $(document).ready(function(){
     //rechter kant
     $('.addstream').on('click',function(){
       var streamdiv = $(this).parent().parent().prev();
-      $(streamdiv).children('.stream:eq(0)').clone(true, true).attr('class', 'row stream').appendTo(streamdiv);
-      $(streamdiv).children('.stream:not(:eq(0))').find('.disabled').removeClass('disabled').addClass('delete').on('click',function(){
+      streamdiv.children('.stream:eq(0)').clone(true, true).attr('class', 'row stream').appendTo(streamdiv);
+      streamdiv.children('.stream:not(:eq(0))').find('.disabled').removeClass('disabled').addClass('delete').on('click',function(){
         $(this).parents('.stream').fadeOut(200, function() {
           $(this.remove());
         });
